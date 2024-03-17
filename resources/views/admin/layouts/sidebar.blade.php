@@ -19,7 +19,7 @@
         <div class="navbar-nav w-100">
             <a href="{{ route('dashboard') }}" class="nav-item nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
             <a href="{{ route('role.index') }}" class="nav-item nav-link {{ request()->routeIs('role.*') ? 'active' : '' }}"><i class="fa fa-th me-2"></i>Role</a>
-            <a href="widget.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>User</a>
+            <a href="{{ route('user.index') }}" class="nav-item nav-link {{ request()->routeIs('user.*') ? 'active' : '' }}"><i class="fa fa-th me-2"></i>User</a>
             <a href="form.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Product</a>
             <a href="table.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Category</a>
         </div>

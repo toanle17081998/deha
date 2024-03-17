@@ -169,6 +169,7 @@
 
     <!-- Template Javascript -->
     <script src="{{ asset('admins/js/main.js') }}"></script>
+    @yield('js')
 </body>
 
 </html>
