@@ -166,9 +166,12 @@
     <script src="{{ asset('admins/lib/tempusdominus/js/moment.min.js') }}"></script>
     <script src="{{ asset('admins/lib/tempusdominus/js/moment-timezone.min.js') }}"></script>
     <script src="{{ asset('admins/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Template Javascript -->
     <script src="{{ asset('admins/js/main.js') }}"></script>
+    <script src="{{ asset('admins/js/custom.js') }}"></script>
     @yield('js')
 </body>
 

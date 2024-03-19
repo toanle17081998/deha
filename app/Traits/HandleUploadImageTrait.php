@@ -24,9 +24,10 @@ trait HandleUploadImageTrait
     public function updateImage($request, $currentImage)
     {
         if ($this->veryfy($request)) {
-            $this->deleteImage($currentImage);
+            // $this->deleteImage($currentImage);
             return $this->saveImage($request);
         }
+        return $currentImage;
     }
 
     public function deleteImage($imageName)
@@ -34,6 +35,7 @@ trait HandleUploadImageTrait
         if (file_exists($this->path . $imageName)) {
             unlink($this->path . $imageName);
         }
+        return true;
     }
 
 }

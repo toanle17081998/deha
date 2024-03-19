@@ -17,5 +17,6 @@ class Role extends ModelsRole
         'group',
         'guard_name',
     ];
+    
 
 }

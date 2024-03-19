@@ -28,10 +28,12 @@
                                     <a href="{{ route('role.edit', $role->id) }}" class="btn btn-outline-primary btn-sm"><i
                                             class="fas fa-edit"></i></a>
 
-                                    <form action="{{ route('role.destroy', $role->id) }}" method="POST">
+                                    <form action="{{ route('role.destroy', $role->id) }}" method="POST"
+                                        id="form-delete{{ $role->id }}">
                                         @csrf
                                         @method('delete')
-                                        <button class="btn btn-outline-danger btn-sm">
+                                        <button class="btn btn-outline-danger btn-sm delete-button"
+                                            data-id="{{ $role->id }}">
                                             <i class="fas fa-trash-alt"></i>
                                         </button>
                                     </form>

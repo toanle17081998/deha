@@ -1,11 +1,11 @@
 @extends('admin.layouts.app')
-@section('title', 'Users list')
+@section('title', 'Categories list')
 @section('content')
     <div class="col-12">
         <div class="bg-light rounded h-100 p-4">
             <div class="d-flex align-items-center justify-content-between">
                 <h6 class="mb-0">List</h6>
-                <a class="btn btn-outline-success m-2 rounded-pill" href="{{ route('user.create') }}">Create <i
+                <a class="btn btn-outline-success m-2 rounded-pill" href="{{ route('category.create') }}">Create <i
                         class="fas fa-plus"></i></a>
             </div>
             <div class="table-responsive">
@@ -14,44 +14,43 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
-                            <th scope="col">Avatar</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Phone</th>
+                            <th scope="col">Parent</th>
                             <th scope="col" style="width:90px">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($users as $user)
+                        @foreach ($categories as $category)
                             <tr>
-                                <th scope="row">{{ $user->id }}</th>
-                                <td>{{ $user->name }}</td>
-                                <td>
-                                    <img src="{{ $user->images->count()>0 ? asset('upload/users/'.$user->images->first()->url) : asset('admins/img/noimage.png') }}" width="100px" height="100px" alt="">
-                                </td>
-                                <td>{{ $user->email }}</td>
-                                <td>{{ $user->phone }}</td>
+                                <th scope="row">{{ $category->id }}</th>
+                                <td>{{ $category->name }}</td>
+                                <td>{{ $category->parent_name }}</td>
                                 <td>
                                     <div class="btn-group" role="group">
-                                        <a href="{{ route('user.edit', $user->id) }}" class="btn btn-outline-primary btn-sm mx-1">
+                                        <a href="{{ route('category.edit', $category->id) }}"
+                                            class="btn btn-outline-primary btn-sm mx-1">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                
-                                        <form action="{{ route('user.destroy', $user->id) }}" method="POST" id="form-delete{{ $user->id }}">
+
+                                        <form action="{{ route('category.destroy', $category->id) }}" method="POST"
+                                            id="form-delete{{ $category->id }}">
                                             @csrf
                                             @method('delete')
-                                            <button class="btn btn-outline-danger btn-sm delete-button" data-id="{{ $user->id }}">
+                                            <button type="submit" class="btn btn-outline-danger btn-sm delete-button"
+                                                data-id="{{ $category->id }}">
                                                 <i class="fas fa-trash-alt"></i>
                                             </button>
                                         </form>
                                     </div>
-
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
-                {{ $users->links() }}
+                {{ $categories->links() }}
             </div>
         </div>
     </div>
+@endsection
+
+@section('js')
 @endsection
